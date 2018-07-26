@@ -9,7 +9,14 @@
       }
     ],
     "react",
+    "es2015",
     "stage-0"
   ],
-  "plugins": ["react-loadable/babel"]
+  "plugins": [
+    "react-loadable/babel",
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ]
 }

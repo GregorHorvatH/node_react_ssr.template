@@ -8,8 +8,14 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import morgan from 'morgan';
 
+import cors from 'cors';
+import GraphHTTP from 'express-graphql';
+import schema from './schema';
+
 import config from '../config/webpack.config.dev';
 import renderServerSideApp from './renderServerSideApp';
+
+import dbMongo from './dbMongo';
 
 const app = express();
 
@@ -22,9 +28,33 @@ if (process.env.PUBLIC_URL === undefined) {
 app.use(shrinkRay());
 app.use(helmet());
 
+// not having cors enabled will cause an access control error
+app.use(cors());
+
 function toMb(bytes) {
   return Math.floor(bytes / 1024 / 1024);
 }
+
+// GraphQL
+app.use(
+  '/graphql',
+  GraphHTTP({
+    schema,
+    pretty: true,
+    graphiql: true
+  })
+);
+
+app.get('/test', (req, res) => {
+  console.log('test loading...'); // eslint-disable-line
+
+  dbMongo.usersModel.find().exec((err, data) => {
+    console.log('mongo error:', err); // eslint-disable-line
+    console.log('mongo data:', data); // eslint-disable-line
+
+    res.send(data);
+  });
+});
 
 app.get('/system', (req, res) => {
   const processMem = process.memoryUsage();

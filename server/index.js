@@ -3,6 +3,7 @@
 require('babel-core/register')({
   plugins: ['syntax-dynamic-import', 'dynamic-import-node']
 });
+require('babel-polyfill');
 
 const cluster = require('cluster');
 const Loadable = require('react-loadable');

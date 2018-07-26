@@ -7,7 +7,7 @@ import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 
 import indexHtml from './indexHtml';
-import App from '../src/App';
+import App from '../src/containers/App';
 import configureStore from '../src/utils/configureStore';
 import fetchDataForRender from './fetchDataForRender';
 
