@@ -10,6 +10,7 @@ import App from './containers/App';
 import configureStore from './utils/configureStore';
 
 // Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.scss';
 
 const store = configureStore(window.__INITIAL_STATE__);

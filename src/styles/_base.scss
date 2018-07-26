@@ -1,3 +1,6 @@
+$header-height: 50px;
+$sidebar-width: 70px;
+
 .app {
   position: absolute;
   top: 0;
@@ -9,18 +12,20 @@
 }
 
 .header {
-  height: 40px;
+  height: $header-height;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 5px;
   cursor: default;
-  border-bottom: 1px solid $color-primary-4;
-  margin: 0 5px;
+  border-bottom: 1px solid $color15;
+  background-color: $color4;
+  color: $color3;
 
   .header-logo {
     height: 40px;
     overflow: hidden;
+    margin-left: 10px;
   }
  
   .header-title {
@@ -37,7 +42,6 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      color: $color-primary-0;
     }
   }
 
@@ -49,33 +53,31 @@
     align-items: center;
     transition: .3s;
     cursor: pointer;
-    color: $color-primary-0;
     font-size: 1.7em;
+    color: $color14;
 
     &:hover {
-      background-color: $color-primary-1;
+      background-color: $color12;
 
       .header-menu-list {
         display: block;
       }
     }
 
-    &:active {
-      color: $color-primary-4;
-    }
-
     .header-menu-list {
       display: none;
       position: absolute;
       right: 6px;
-      top: 43px;
+      top: 35px;
       font-size: 0.5em;
       background-color: #fff;
-      border: 1px solid $color-primary-4;
       border-radius: 3px;
       list-style-type: none;
       padding: 5px;
       margin: 0;
+      background-color: $color7;
+      color: $color1;
+      box-shadow: 0 0 15px $color3;
 
       .item {
         font-size: 0.4em;
@@ -91,7 +93,7 @@
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
-        color: $color-primary-4;
+        // color: $color-primary-4;
         border-radius: 5px;
         display: flex;
         flex-direction: row;
@@ -99,11 +101,11 @@
         font-size: 1.2em;
 
         &:hover {
-          background: $color-primary-1;
+          background: $color6;
         }
 
         &:active {
-          background: $color-primary-0;
+          background: $color3;
         }
       }
     }
@@ -117,12 +119,19 @@
 }
 
 .sidebar {
-  width: 23px;
+  width: $sidebar-width;
   overflow: auto;
   transition: .3s;
-  margin: 5px 5px 5px 0;
-  padding: 0 5px 5px;
-  border-right: 1px solid $color-primary-4;
+  padding: 5px;
+  background-color: $color7;
+  box-shadow: 2px 0 5px $color5;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+  }  
 
   .sidebar-menu {
     display: flex;
@@ -132,7 +141,8 @@
     margin: 0;
 
     .active {
-      background-color: $color-primary-2;
+      background-color: $color3;
+      padding: 5px;
     }
 
     .menu-item {
@@ -140,55 +150,81 @@
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      color: $color-primary-4;
+      color: $color9;
       border-radius: 5px;
       margin-bottom: 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       &:hover {
-        background: $color-primary-1;
+        background: $color6;
       }
 
       &:active {
-        background: $color-primary-0;
+        background: $color3;
       }
 
       i {
         margin-right: 5px;
+        font-size: 25px;
       }
 
       span {
-        display: none;
+        font-size: 10px;
       }
     }
   }
 
-  &:hover {
-    width: 200px;
+  // &:hover {
+  //   width: 200px;
 
-    .menu-item {
-      white-space: inherit;
+  //   .menu-item {
+  //     flex-direction: row;
+  //     align-items: flex-start;
+  //     white-space: inherit;
+  //     padding: 5px;
 
-      span {
-        display: inline-block;
-      }
-    }
-  }
+  //     i {
+  //       font-size: 18px;
+  //     }
+
+  //     span {
+  //       display: inline-block;
+  //       font-size: 13px;
+  //     }
+  //   }
+  // }
 }
 
 .content {
   flex: 1;
   overflow: auto;
+  padding-left: 10px;
+  color: $color14;
 }
 
 .footer {
-  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 5px;
   cursor: default;
-  border-top: 1px solid $color-primary-4;
-  margin: 0 5px;
+  border-top: 1px solid $color14;
+  background-color: $color2;
+  color: $color14;
+
+  .contacts {
+    text-align: center;
+
+    .logo {
+      width: 40px;
+    }
+  
+    .icon {
+      width: 25px;
+    }
+  }
 }
 
 @media (max-width: 500px) {

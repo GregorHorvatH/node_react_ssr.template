@@ -1,10 +1,11 @@
+// Core
 import React from 'react';
 
 const Header = () => (
   <div className = "header">
     {/* logo */}
     <a href = "/">
-      <img className = "header-logo" src = "./images/logo.png" alt="logo" />
+      <img className = "header-logo" src = "./images/hg_logo.png" alt="logo" />
     </a>
 
     {/* title */}
