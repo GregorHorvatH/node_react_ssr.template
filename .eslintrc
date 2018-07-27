@@ -21,6 +21,7 @@
     "jest": true
   },
   "rules": {
-    "no-console": 1
+    "no-console": 1,
+    "jsx-a11y/no-noninteractive-element-interactions": 0
   }
 }

@@ -1,4 +1,12 @@
-export const title = 'React SSR Boilerplate';
+export const title = 'My awesome company';
+
+export const logo = './images/hg_logo.png';
+
+export const contacts = {
+  address: 'Kyiv, Main str, 123',
+  phone: '+38(067)123-45-67',
+  email: 'admin@gmail.com'
+};
 
 export const meta = [
   {
@@ -18,7 +26,7 @@ export const meta = [
   },
   {
     name: 'theme-color',
-    content: '#00D1E8'
+    content: '#2A3F54'
   }
 ];
 

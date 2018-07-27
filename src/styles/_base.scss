@@ -1,5 +1,6 @@
 $header-height: 50px;
 $sidebar-width: 70px;
+$sidebar-full-width: 200px;
 
 .app {
   position: absolute;
@@ -88,7 +89,6 @@ $sidebar-width: 70px;
         overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
-        // color: $color-primary-4;
         border-radius: 5px;
         display: flex;
         flex-direction: row;
@@ -171,25 +171,60 @@ $sidebar-width: 70px;
     }
   }
 
-  // &:hover {
-  //   width: 200px;
+  .change-size {
+    position: absolute;
+    left: $sidebar-width;
+    top: $header-height;
+    height: 50px;
+    width: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color1;
+    cursor: pointer;
+    background-color: $color7;
+    color: $color12;
+    box-shadow: 2px 0 5px $color5;
+    border-bottom-right-radius: 2px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    transition: .3s;
+    outline: none;
 
-  //   .menu-item {
-  //     flex-direction: row;
-  //     align-items: flex-start;
-  //     white-space: inherit;
-  //     padding: 5px;
+    &:hover {
+      background-color: $color6;
+      }
 
-  //     i {
-  //       font-size: 18px;
-  //     }
+    &:active {
+      background-color: $color3;
+    }
+  }
 
-  //     span {
-  //       display: inline-block;
-  //       font-size: 13px;
-  //     }
-  //   }
-  // }
+
+  &.opened {
+    width: $sidebar-full-width;
+
+    .change-size {
+      left: $sidebar-full-width;
+    }  
+
+    .menu-item {
+      flex-direction: row;
+      align-items: flex-start;
+      white-space: inherit;
+      padding: 5px;
+
+      i {
+        font-size: 18px;
+      }
+
+      span {
+        display: inline-block;
+        font-size: 13px;
+      }
+    }
+  }
 }
 
 .content {
@@ -210,7 +245,15 @@ $sidebar-width: 70px;
   color: $color14;
 
   .contacts {
-    text-align: center;
+    .row {
+      height: 100%;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .logo {
       width: 40px;
@@ -229,5 +272,16 @@ $sidebar-width: 70px;
 
   .header-title {
     font-size: 1.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    .contacts {
+      .logo {
+        width: 80px;
+        margin-left: 50px;
+      }
+    }
   }
 }
