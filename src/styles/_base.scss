@@ -31,7 +31,6 @@ $sidebar-width: 70px;
   .header-title {
     font-size: 2em;
     flex: 1;
-    margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,6 +41,7 @@ $sidebar-width: 70px;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      margin: 0;
     }
   }
 
@@ -70,22 +70,17 @@ $sidebar-width: 70px;
       right: 6px;
       top: 35px;
       font-size: 0.5em;
-      background-color: #fff;
       border-radius: 3px;
       list-style-type: none;
       padding: 5px;
       margin: 0;
       background-color: $color7;
-      color: $color1;
+      color: $color9;
       box-shadow: 0 0 15px $color3;
 
       .item {
-        font-size: 0.4em;
-        padding-right: 5px;
-      }
-
-      .item.exit {
         font-size: 1em;
+        padding-right: 5px;
       }
 
       li {
@@ -126,12 +121,12 @@ $sidebar-width: 70px;
   background-color: $color7;
   box-shadow: 2px 0 5px $color5;
 
-  &::-webkit-scrollbar {
-    display: none;
-    width: 0 !important;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-  }  
+  // &::-webkit-scrollbar {
+  //   display: none;
+  //   width: 0 !important;
+  //   -ms-overflow-style: none;
+  //   overflow: -moz-scrollbars-none;
+  // }  
 
   .sidebar-menu {
     display: flex;

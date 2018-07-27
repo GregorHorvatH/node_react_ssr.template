@@ -18,20 +18,16 @@ const Header = () => (
       <i className = "fa fa-user-circle-o"></i>
       <ul className = "header-menu-list">
         <li>
-          <i className = "item fa fa-circle-thin"></i>
-          <span>Menu item 1</span>
+          <i className = "item fa fa-flag-o"></i>
+          <span>Language</span>
         </li>
         <li>
-          <i className = "item fa fa-circle-thin"></i>
-          <span>Menu item 2</span>
+          <i className = "item fa fa-cog"></i>
+          <span>Settings</span>
         </li>
+        <hr color = "#E7E7E7" size = "1" />
         <li>
-          <i className = "item fa fa-circle-thin"></i>
-          <span>Menu item 3</span>
-        </li>
-        <hr color = "#446911" size = "1" />
-        <li>
-          <i className = "item exit fa fa-sign-out"></i>
+          <i className = "item fa fa-sign-out"></i>
           <span>Exit</span>
         </li>
       </ul>
