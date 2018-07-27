@@ -22,7 +22,11 @@ if (env.raw.NODE_ENV !== 'production') {
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: [resolvePath('./polyfills'), resolvePath('../src/index.js')],
+  entry: [
+    'font-awesome/scss/font-awesome.scss',
+    resolvePath('./polyfills'),
+    resolvePath('../src/index.js')
+  ],
   output: {
     path: resolvePath('../build'),
     filename: 'static/js/[name].[chunkhash:8].js',
@@ -73,6 +77,19 @@ module.exports = {
           'sass-loader',
           'import-glob-loader'
         ]
+      },
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader?limit=10000'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        use: 'file-loader'
+      },
+      // font-awesome
+      {
+        test: /font-awesome\.config\.js/,
+        use: [{ loader: 'style-loader' }, { loader: 'font-awesome-loader' }]
       }
     ]
   },

@@ -18,7 +18,6 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true',
     'react-error-overlay',
-    'babel-polyfill',
     'font-awesome/scss/font-awesome.scss',
     resolvePath('../src/index.js')
   ],

@@ -1,6 +1,6 @@
 export const title = 'My awesome company';
 
-export const logo = './images/hg_logo.png';
+export const logo = `${process.env.PUBLIC_URL}/images/hg_logo.png`;
 
 export const contacts = {
   address: 'Kyiv, Main str, 123',
@@ -22,7 +22,7 @@ export const meta = [
   },
   {
     name: 'description',
-    content: 'Boilerplate for React apps with routing & server side rendering'
+    content: title
   },
   {
     name: 'theme-color',
@@ -33,7 +33,8 @@ export const meta = [
 export const link = [
   {
     rel: 'shortcut icon',
-    href: `${process.env.PUBLIC_URL}/favicon.ico?v1`
+    // href: `${process.env.PUBLIC_URL}/favicon.ico?v1`
+    href: logo
   }
 ];
 

@@ -46,63 +46,76 @@ $sidebar-full-width: 200px;
     }
   }
 
-  .header-menu {
-    width: 40px;
-    border-radius: 20px;
+  .header-right {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    transition: .3s;
-    cursor: pointer;
-    font-size: 1.7em;
-    color: $color14;
 
-    &:hover {
-      background-color: $color12;
-
+    .header-menu {
+      width: 40px;
+      height: 100%;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .3s;
+      cursor: pointer;
+      font-size: 1.7em;
+      color: $color14;
+  
+      &:hover {
+        background-color: $color12;
+  
+        .header-menu-list {
+          display: block;
+        }
+      }
+  
       .header-menu-list {
-        display: block;
+        display: none;
+        position: absolute;
+        right: 6px;
+        top: 35px;
+        font-size: 0.5em;
+        border-radius: 3px;
+        list-style-type: none;
+        padding: 5px;
+        margin: 0;
+        background-color: $color7;
+        color: $color9;
+        box-shadow: 0 0 15px $color3;
+  
+        .item {
+          font-size: 1em;
+          padding-right: 5px;
+        }
+  
+        li {
+          padding: 5px;
+          overflow: hidden;
+          white-space: nowrap;
+          cursor: pointer;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: 1.2em;
+  
+          &:hover {
+            background: $color6;
+          }
+  
+          &:active {
+            background: $color3;
+          }
+        }
       }
     }
-
-    .header-menu-list {
-      display: none;
-      position: absolute;
-      right: 6px;
-      top: 35px;
-      font-size: 0.5em;
-      border-radius: 3px;
-      list-style-type: none;
-      padding: 5px;
+  
+    .login {
+      font-size: 1em;
       margin: 0;
-      background-color: $color7;
-      color: $color9;
-      box-shadow: 0 0 15px $color3;
-
-      .item {
-        font-size: 1em;
-        padding-right: 5px;
-      }
-
-      li {
-        padding: 5px;
-        overflow: hidden;
-        white-space: nowrap;
-        cursor: pointer;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size: 1.2em;
-
-        &:hover {
-          background: $color6;
-        }
-
-        &:active {
-          background: $color3;
-        }
-      }
+      padding: 0;
     }
   }
 }
@@ -230,7 +243,7 @@ $sidebar-full-width: 200px;
 .content {
   flex: 1;
   overflow: auto;
-  padding-left: 10px;
+  padding: 0 10px;
   color: $color14;
 }
 
