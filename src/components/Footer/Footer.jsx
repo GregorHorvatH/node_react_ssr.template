@@ -24,7 +24,7 @@ const Footer = () => (
               <span>{ contacts.address }</span>
             </Col>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
-              <i className = "fa fa-phone" />
+              <i className = "icon fa fa-phone" />
               <span>{ contacts.phone }</span>
             </Col>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
