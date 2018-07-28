@@ -1,8 +1,8 @@
 'use strict';
 
 import Sequelize from 'sequelize';
-import Faker from 'faker';
-import _ from 'lodash';
+// import Faker from 'faker';
+// import _ from 'lodash';
 
 const sequelize = new Sequelize(
   'testDB', // database
@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
   'postgres', // password
   {
     dialect: 'postgres',
+    // host:    '172.17.0.4'
     host: 'localhost'
   }
 );

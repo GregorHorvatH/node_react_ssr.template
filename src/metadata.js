@@ -1,6 +1,6 @@
 export const title = 'My awesome company';
 
-export const logo = `${process.env.PUBLIC_URL}/images/hg_logo.png`;
+export const logo = `${process.env.PUBLIC_URL}/images/HG_logo.png`;
 
 export const contacts = {
   address: 'Kyiv, Main str, 123',

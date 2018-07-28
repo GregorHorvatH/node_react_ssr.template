@@ -1,6 +1,7 @@
 // Core
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { bool } from 'prop-types';
 
 // Components
 import MenuItem from '../../components/MenuItem'
@@ -17,10 +18,15 @@ class SideBar extends Component {
   }
 
   render() {
+    const { isVisible } = this.props;
     const { sidebarIsOpened } = this.state;
 
     return (
-      <div className = { classnames('sidebar', { 'opened': sidebarIsOpened }) }>
+      <div className = { classnames(
+        'sidebar',
+        { 'opened': sidebarIsOpened },
+        { 'show': isVisible }
+        ) }>
         <button className = "change-size" onClick = { this.handleOpenPress } onKeyPress = { this.handleOpenPress } >
           <span>{ sidebarIsOpened ? '<' : '>' }</span>
         </button>
@@ -45,5 +51,9 @@ class SideBar extends Component {
     );
   }
 }
+
+SideBar.propTypes = {
+  isVisible: bool,
+};
 
 export default SideBar;

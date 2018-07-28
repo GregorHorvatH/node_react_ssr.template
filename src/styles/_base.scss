@@ -23,10 +23,22 @@ $sidebar-full-width: 200px;
   background-color: $color4;
   color: $color3;
 
-  .header-logo {
-    height: 40px;
-    overflow: hidden;
-    margin-left: 10px;
+  .header-left {
+    display: flex;
+    flex-direction: row;
+
+    .header-main-menu {
+      display: none;
+      padding-left: 20px;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    .header-logo {
+      height: 40px;
+      overflow: hidden;
+      padding-left: 15px;
+    }
   }
  
   .header-title {
@@ -36,6 +48,7 @@ $sidebar-full-width: 200px;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding: 0 15px;
 
     p {
       text-align: center;
@@ -279,16 +292,32 @@ $sidebar-full-width: 200px;
 }
 
 @media (max-width: 500px) {
-  .header-logo {
-    display: none;
-  }
-
   .header-title {
     font-size: 1.5em;
   }
 }
 
 @media (max-width: 576px) {
+  .header {
+    .header-left {
+      .header-main-menu {
+        display: block;
+      }
+
+      .header-logo {
+        display: none;
+      }
+    }
+  }
+
+  .sidebar {
+    display: none;
+
+    &.show {
+      display: inherit;
+    }
+  }
+
   .footer {
     .contacts {
       .logo {

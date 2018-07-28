@@ -29,7 +29,7 @@ class HeaderMenu extends Component {
     return (
       <div className = "header-right">
         <p className = "login">{ login }</p>
-        <div className = "header-menu">
+        <div className = "header-menu" >
           <i className = "fa fa-user-circle-o" />
           <ul className = "header-menu-list">
             <li onClick = { this.handleLoginPress } onKeyPress = { this.handleLoginPress }>
@@ -57,8 +57,8 @@ class HeaderMenu extends Component {
 }
 
 HeaderMenu.propTypes = {
-  actions: object,
-  user:    object,
+  actions:   object,
+  user:      object,
 };
 
 export default HeaderMenu;

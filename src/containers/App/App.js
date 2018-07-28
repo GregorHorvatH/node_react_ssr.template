@@ -1,9 +1,9 @@
 // Core
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
 // Components
-import Header from '../../components/Header';
+import Header from '..//Header';
 import SideBar from '../../components/SideBar';
 import Content from '../../components/Content';
 import Footer from '../../components/Footer';
@@ -11,25 +11,41 @@ import Footer from '../../components/Footer';
 // Instruments
 import * as metadata from '../../metadata';
 
-const App = () => (
-  <div className="app">
-    <Helmet
-      title={metadata.title}
-      meta={metadata.meta}
-      link={metadata.link}
-      script={metadata.script}
-      noscript={metadata.noscript}
-    />
+class App extends Component {
+  state = {
+    sidebarIsVisible: false
+  };
 
-    <Header />
+  _handleVisiblePress = () => {
+    this.setState(({ sidebarIsVisible }) => ({
+      sidebarIsVisible: !sidebarIsVisible
+    }));
+  };
 
-    <div className="body">
-      <SideBar />
-      <Content />
-    </div>
+  render() {
+    const { sidebarIsVisible } = this.state;
 
-    <Footer />
-  </div>
-);
+    return (
+      <div className="app">
+        <Helmet
+          title={metadata.title}
+          meta={metadata.meta}
+          link={metadata.link}
+          script={metadata.script}
+          noscript={metadata.noscript}
+        />
+
+        <Header onMenuPress={this._handleVisiblePress} />
+
+        <div className="body">
+          <SideBar isVisible={sidebarIsVisible} />
+          <Content />
+        </div>
+
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default App;
