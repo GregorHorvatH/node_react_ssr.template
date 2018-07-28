@@ -32,6 +32,14 @@ $sidebar-full-width: 200px;
       padding-left: 20px;
       font-size: 2em;
       cursor: pointer;
+
+      &:hover {
+        color: $color6;
+      }
+
+      &:active {
+        color: $color3;
+      }
     }
 
     .header-logo {
