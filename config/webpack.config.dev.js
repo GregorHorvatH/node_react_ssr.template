@@ -72,6 +72,14 @@ module.exports = {
           'import-glob-loader'
         ]
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      // },
+      // {
+      //   test: /\.scss$/,
+      //   loader: 'css-loader/locals'
+      // },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'url-loader?limit=10000'

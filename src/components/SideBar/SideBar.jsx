@@ -36,6 +36,7 @@ class SideBar extends Component {
           <MenuItem icon = "fa fa-calendar" path = '/page1' title = 'Page 1' />
           <MenuItem icon = "fa fa-laptop" path = '/page2' title = 'Page 2' />
           <MenuItem icon = "fa fa-map-o" path = '/mongo' title = 'Mongo' />
+          <MenuItem icon = "fa fa-user" path = '/login' title = 'Login' />
     
           <a href="/test" className="menu-item">
             <i className="fa fa-text-width"></i>

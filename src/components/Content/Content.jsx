@@ -58,6 +58,17 @@ const Mongo = Loadable({
   }
 });
 
+const Login = Loadable({
+  loader: () => import(/* webpackChunkName: 'mongo' */ '../../containers/LoginPage'),
+  loading() {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+});
+
 const LoadablePage404 = Loadable({
   loader: () => import(/* webpackChunkName: 'page404' */ '../Page404'),
   loading() {
@@ -77,6 +88,7 @@ const Content = () => (
       <Route path = "/page1" component = { LoadablePage1 } />
       <Route path = "/page2" component = { LoadablePage2 } />
       <Route path = "/mongo" component = { Mongo } />
+      <Route path = "/login" component = { Login } />
       <Route path = "/*" component = { LoadablePage404 } />
     </Switch>
   </div>
