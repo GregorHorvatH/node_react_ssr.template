@@ -5,7 +5,7 @@ const PUBLIC_URL = env.raw.PUBLIC_URL;
 let assetManifest;
 
 if (env.raw.NODE_ENV === 'production') {
-  assetManifest = require('../build/asset-manifest.json');
+  assetManifest = require('../../build/asset-manifest.json');
 } else {
   assetManifest = {
     'main.js': '/main.bundle.js'
