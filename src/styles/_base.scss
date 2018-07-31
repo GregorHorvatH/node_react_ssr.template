@@ -262,6 +262,7 @@ $sidebar-full-width: 200px;
 }
 
 .content {
+  display: flex;
   flex: 1;
   overflow: auto;
   padding: 0 10px;
@@ -334,4 +335,11 @@ $sidebar-full-width: 200px;
       }
     }
   }
+}
+
+.loader {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
