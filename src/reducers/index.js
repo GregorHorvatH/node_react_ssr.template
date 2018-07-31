@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import session from './sessionReducer';
+import session from './session';
 import user from './user';
 
 const appReducer = combineReducers({
@@ -18,4 +18,4 @@ const rootReducer = (state, action) => {
 
 export default rootReducer;
 
-export * from './sessionReducer';
+export * from './session';

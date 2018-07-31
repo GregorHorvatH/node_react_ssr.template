@@ -19,6 +19,7 @@
 
 - [react-ssr-boilerplate](https://github.com/cullenjett/react-ssr-boilerplate)
 - [react-ssr-boilerplate](https://github.com/mtrifilo/react-ssr-boilerplate)
+- [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 ## Useful links
 

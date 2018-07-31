@@ -6,9 +6,9 @@ import Helmet from 'react-helmet';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 
-import indexHtml from './indexHtml';
-import App from '../src/containers/App';
-import configureStore from '../src/utils/configureStore';
+import indexHtml from '../views/indexHtml';
+import App from '../../src/containers/App';
+import configureStore from '../../src/utils/configureStore';
 import fetchDataForRender from './fetchDataForRender';
 
 const renderServerSideApp = (req, res) => {
@@ -28,7 +28,7 @@ const renderServerSideApp = (req, res) => {
       </Loadable.Capture>
     );
 
-    const stats = require('../build/react-loadable.json');
+    const stats = require('../../build/react-loadable.json');
     const bundles = getBundles(stats, modules);
 
     if (context.url) {

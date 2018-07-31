@@ -1,4 +1,4 @@
-import getClientEnvironment from '../config/env';
+import getClientEnvironment from '../../config/env';
 
 const env = getClientEnvironment();
 const PUBLIC_URL = env.raw.PUBLIC_URL;

@@ -7,8 +7,8 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import db from './dbPostgres';
-import dbMongo from './dbMongo';
+import db from './dbPostgres'; // postgres schemas
+import Todo from '../models/todo'; // from MongoDB
 
 /**
  * generate projection object for mongoose
@@ -230,7 +230,7 @@ const query = new GraphQLObjectType({
         resolve: (root, data, source, fieldASTs) => {
           const projections = getProjection(fieldASTs);
           const foundItems = new Promise((resolve, reject) => {
-            dbMongo.todosModel.find(
+            Todo.find(
               data,
               projections,
               (err, todos) => (err ? reject(err) : resolve(todos))

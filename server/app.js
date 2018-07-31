@@ -1,4 +1,4 @@
-import os from 'os';
+// Core
 import path from 'path';
 import express from 'express';
 import shrinkRay from 'shrink-ray';
@@ -6,16 +6,20 @@ import helmet from 'helmet';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import morgan from 'morgan';
-
+import morgan from 'morgan'; // logger
 import cors from 'cors';
-import GraphHTTP from 'express-graphql';
-import schema from './schema';
+import cookieParser from 'cookie-parser';
+import passport from 'passport';
 
+// Instruments
 import config from '../config/webpack.config.dev';
-import renderServerSideApp from './renderServerSideApp';
+import renderServerSideApp from './helpers/renderServerSideApp';
 
-import dbMongo from './dbMongo';
+// Routers
+import graphqlRouter from './routes/graphiql';
+import systemRouter from './routes/system';
+import apiRouter from './routes/api';
+import testRouter from './routes/test';
 
 const app = express();
 
@@ -27,59 +31,13 @@ if (process.env.PUBLIC_URL === undefined) {
 
 app.use(shrinkRay());
 app.use(helmet());
+app.use(morgan('dev')); // app.use(morgan('tiny'));
+app.use(cors()); // not having cors enabled will cause an access control error
 
-// not having cors enabled will cause an access control error
-app.use(cors());
-
-function toMb(bytes) {
-  return Math.floor(bytes / 1024 / 1024);
-}
-
-// GraphQL
-app.use(
-  '/graphql',
-  GraphHTTP({
-    schema,
-    pretty: true,
-    graphiql: true
-  })
-);
-
-app.get('/test', (req, res) => {
-  console.log('test loading...'); // eslint-disable-line
-
-  dbMongo.usersModel.find().exec((err, data) => {
-    console.log('mongo error:', err); // eslint-disable-line
-    console.log('mongo data:', data); // eslint-disable-line
-
-    res.send(data);
-  });
-});
-
-app.get('/system', (req, res) => {
-  const processMem = process.memoryUsage();
-  const stats = {
-    memory: {
-      system: {
-        free: toMb(os.freemem()),
-        total: toMb(os.totalmem())
-      },
-      process: {
-        rss: toMb(processMem.rss),
-        heapTotal: toMb(processMem.heapTotal),
-        heapUsed: toMb(processMem.heapUsed)
-      }
-    },
-    loadavg: os.loadavg(),
-    cpuCount: os.cpus().length,
-    uptime: {
-      system: Math.floor(os.uptime()),
-      process: Math.floor(process.uptime())
-    }
-  };
-
-  res.json(stats);
-});
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(passport.initialize());
 
 app.use(
   process.env.PUBLIC_URL,
@@ -95,6 +53,13 @@ app.use(
   })
 );
 
+// Routes
+app.use('/graphql', graphqlRouter);
+app.use('/system', systemRouter);
+app.use('/api', apiRouter);
+app.use('/test', testRouter);
+
+// Node hot reload
 if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(config);
 
@@ -120,8 +85,6 @@ if (process.env.NODE_ENV !== 'production') {
     })
   );
 }
-
-app.use(morgan('tiny'));
 
 app.get('*', renderServerSideApp);
 
