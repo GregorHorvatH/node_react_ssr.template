@@ -88,4 +88,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.get('*', renderServerSideApp);
 
+app.post('/*', function(req, res) {
+  res.send(`Api "${req.url}" does not exist!`);
+});
+
 export default app;
