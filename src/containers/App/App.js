@@ -8,8 +8,6 @@ import Header from '..//Header';
 import SideBar from '../../components/SideBar';
 import Content from '../../components/Content';
 import Footer from '../../components/Footer';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // Instruments
 import * as metadata from '../../metadata';
@@ -17,8 +15,6 @@ import { loadState } from '../../helpers';
 
 // Actions
 import userActions from '../../actions/user';
-
-// import store from '../../store/configureStore';
 
 class App extends Component {
   state = {
@@ -36,11 +32,12 @@ class App extends Component {
   }
 
   _loadState = async () => {
-    const { fillUser } = this.props.actions;
-    const { user } = await loadState();
+    const { store } = this.props;
+    const { fillUser } = userActions;
+    const { user } = (await loadState()) || {};
 
     if (user && user.login) {
-      fillUser(user);
+      store.dispatch(fillUser(user));
     }
   };
 
@@ -71,18 +68,11 @@ class App extends Component {
 }
 
 App.propTypes = {
-  actions: object
+  store: object
 };
 
 App.defaultProps = {
-  actions: {}
+  store: {}
 };
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ ...userActions }, dispatch)
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+export default App;

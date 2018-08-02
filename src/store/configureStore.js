@@ -8,6 +8,10 @@ import userTypes from '../actions/user/types';
 
 import rootReducer from '../reducers';
 
+if (!global.window) {
+  global.window = {};
+}
+
 // Environment check
 const dev = process.env.NODE_ENV !== 'production'; // eslint-disable-line
 const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
@@ -25,11 +29,8 @@ const configureStore = (initialState, options = { logger: true }) => {
     middleware.push(logger);
   }
 
-  // const persistedStore = loadState(initialState);
-
   const store = createStore(
     rootReducer,
-    // persistedStore,
     initialState,
     composeEnhancers(applyMiddleware(...middleware))
   );

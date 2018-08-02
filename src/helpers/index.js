@@ -19,7 +19,6 @@ export const loadState = () => {
   } catch (error) {
     if (process.env.NODE_ENV !== 'production') {
       console.warn(error.message); // eslint-disable-line
-      console.log('Loading initial state:', state); // eslint-disable-line
     }
 
     return;
