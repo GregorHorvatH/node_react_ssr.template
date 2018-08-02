@@ -288,6 +288,10 @@ $sidebar-full-width: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      a {
+        color: #515356;
+      }
     }
 
     .logo {

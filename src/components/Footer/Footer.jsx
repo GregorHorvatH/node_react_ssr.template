@@ -1,6 +1,7 @@
 // Core
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 // Instruments
 import { contacts, logo, title } from '../../metadata'
@@ -16,20 +17,22 @@ const Footer = () => (
         <Col xs = "9" sm = "9"  md = "10" lg = "10">
           <Row>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
-              <i className = "icon fa fa-bookmark" />
-              <span>{ title }</span>
+              <Link exact to = '/about' className = 'menu-item'>
+                <i className = "icon fa fa-bookmark" />
+                <span>{ title }</span>
+              </Link>
             </Col>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
               <i className = "icon fa fa-map-marker" />
-              <span>{ contacts.address }</span>
+              <a href="https://www.google.com.ua/maps/search/Kyiv">{ contacts.address }</a>
             </Col>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
               <i className = "icon fa fa-phone" />
-              <span>{ contacts.phone }</span>
+              <a href = {`tel:${ contacts.email }`}>{ contacts.phone }</a>
             </Col>
             <Col xs = "12" sm = "6"  md = "6" lg = "3" className = "info">
               <i className = "icon fa fa-envelope" />
-              <span>{ contacts.email }</span>
+              <a href = {`mailto:${ contacts.email }`}>{ contacts.email }</a>
             </Col>
           </Row>
         </Col>
