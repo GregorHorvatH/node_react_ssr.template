@@ -5,12 +5,13 @@ import Loadable from 'react-loadable';
 import Loading from '../components/Loading';
 
 export const LoadableHome = Loadable({
-  loader: () => import(/* webpackChunkName: 'home' */ '../components/Home'),
+  loader: () => import(/* webpackChunkName: 'home' */ '../components/HomePage'),
   loading: Loading
 });
 
 export const LoadableAbout = Loadable({
-  loader: () => import(/* webpackChunkName: 'about' */ '../components/About'),
+  loader: () =>
+    import(/* webpackChunkName: 'about' */ '../components/AboutPage'),
   loading: Loading
 });
 
@@ -21,11 +22,6 @@ export const LoadablePage1 = Loadable({
 
 export const LoadablePage2 = Loadable({
   loader: () => import(/* webpackChunkName: 'page2' */ '../components/Page2'),
-  loading: Loading
-});
-
-export const Mongo = Loadable({
-  loader: () => import(/* webpackChunkName: 'mongo' */ '../components/Mongo'),
   loading: Loading
 });
 

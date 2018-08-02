@@ -2,7 +2,7 @@ import types from '../../actions/user/types';
 
 const initialState = {
   login: 'Gregory',
-  token: undefined
+  token: 'Fake token'
 };
 
 export default (state = initialState, action) => {

@@ -1,12 +1,12 @@
 import url from 'url';
 import { matchPath } from 'react-router-dom';
 
-import { Home } from '../../src/components/Home';
+import HomePage from '../../src/components/HomePage';
 
 const ROUTES_THAT_FETCH_DATA = [
   {
     path: '/',
-    component: Home,
+    component: HomePage,
     exact: true
   }
 ];
