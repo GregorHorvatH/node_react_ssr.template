@@ -8,7 +8,7 @@ import { getBundles } from 'react-loadable/webpack';
 
 import indexHtml from '../views/indexHtml';
 import App from '../../src/containers/App';
-import configureStore from '../../src/utils/configureStore';
+import configureStore from '../../src/store/configureStore';
 import fetchDataForRender from './fetchDataForRender';
 
 const renderServerSideApp = (req, res) => {

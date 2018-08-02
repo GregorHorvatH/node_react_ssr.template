@@ -7,7 +7,7 @@ import Loadable from 'react-loadable';
 
 // Instruments
 import App from './containers/App';
-import configureStore from './utils/configureStore';
+import configureStore from './store/configureStore';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
